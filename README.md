@@ -27,9 +27,9 @@
 
 ## Author
 
-- GitHub: [@Mo7amedSMahdi](https://github.com/Mo7amedSMahdi)
-- Twitter: [@devMo7amed](https://twitter.com/devMo7amed)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/mohammed-mahdi-b20340162/)
+- GitHub: [@LYANGEND](https://github.com/LYANGEND)
+- Twitter: [@davidLyangenda](https://twitter.com/david_lyangenda)
+- LinkedIn: [LinkedIn](hhttps://www.linkedin.com/in/david-lyangenda-623087151/)
 
 ## 🤝 Contributing
 
