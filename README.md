@@ -28,8 +28,8 @@
 ## Author
 
 - GitHub: [@LYANGEND](https://github.com/LYANGEND)
-- Twitter: [@davidLyangenda](https://twitter.com/david_lyangenda)
-- LinkedIn: [LinkedIn](hhttps://www.linkedin.com/in/david-lyangenda-623087151/)
+- Twitter: [@davidlyangenda](https://twitter.com/david_lyangenda)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/davidlyangenda/)
 
 ## 🤝 Contributing
 
