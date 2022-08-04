@@ -25,7 +25,7 @@
 - To run the tests you must first have run `bundle install`
 - Then in the repository's main directory run `bundle exec rspec spec`
 
-## Author
+## Authors
 
 - GitHub: [@LYANGEND](https://github.com/LYANGEND)
 - Twitter: [@davidlyangenda](https://twitter.com/david_lyangenda
