@@ -1,15 +1,28 @@
 require 'rails_helper'
 
 RSpec.describe Like, type: :model do
-  before(:all) do
-    Rails.application.load_seed
+  subject do
+    Like.new(user_id: User.first.id, post_id: Post.first.id)
   end
 
-  it 'LikesCounter for first user, first post equal 2' do
-    Like.update_post_likes_counter(User.first.posts.first.id)
-    Like.update_post_likes_counter(User.first.posts.first.id)
-    likes = User.first.posts.first.likes_counter
+  before { subject.save }
 
-    expect(likes).to eq(2)
+  it 'should save the data' do
+    expect(subject).to be_valid
+  end
+
+  it 'name should be present' do
+    subject.user_id = nil
+    expect(subject).to_not be_valid
+  end
+
+  it 'post_id should be a string' do
+    subject.post_id = '11123'
+    expect(subject).to_not be_valid
+  end
+
+  it 'user_id should be a string' do
+    subject.user_id = '1123'
+    expect(subject).to_not be_valid
   end
 end

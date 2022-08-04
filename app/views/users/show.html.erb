@@ -1,37 +1,40 @@
-<div class="container flex flex--column">
-    <div class="row">
-        <%= render partial: "shared/single_user", locals: { user: @user } %>
-    </div>
-    <div class='row'>
-        <div class="col">
-            <p>
-                <%= @user.bio %>
-            </p>
+<section class="user-details">
+<section class='user-section-card'>
+<div class="user-img"><img src="<%= @user.photo %>" alt="user_photo"></div>
+<div class="user-card">
+  <div class="user-card__name">
+  <h1><%= @user.name %><h1>
+  </div>
+  <div class="user-card__email">
+  <p>Number of posts:<%= @user.postsCounter || 0 %> </p>  
+  </div>
+</section>
+
+
+<section class='user-bio'>
+<div class="user-card">
+  <h1 class="user-card__name">
+    Bio
+  </h1>
+  <p> <%= @user.bio %></p>  
+</section>
+   
+    <% @user.posts.each_with_index do |post,index| %>
+      <section class='user-section-card'>
+      <div class="user-card comment-card">
+        <div class="user-card__name">
+         <h3> Post #<%= index+1 %> </h3>
+        
+        <%= link_to user_post_path(@user.id,post.id),  class: "post-p" do %> 
+         <h4><%= post.text %></h4>
+        <% end %>
         </div>
-    </div>
-
-
-    <div class="row flex flex--column">
-        <% @user.recent_posts.each do |post| %>
-            <div class"row">
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                <%= link_to post.title, user_post_path(user_id:@user.id,id:post.id) %>
-                            </h5>
-                            <p class="card-text">
-                                <%= post.text %>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <% end %>
-    </div>
-
-    <div class="row">
-        <%= link_to "See all posts", user_posts_path(@user.id), class: "btn btn-primary btn--center" %>
-    </div>
-
-</div>
+        <div class="comment__like">
+        <p>Comments:<%= @user.comments.length %> </p>  
+        <p>Likes:<%= @user.likes.length %> </p>  
+        </div>
+      </section>
+    <% end %>
+ <%= link_to 'See all posts', user_posts_path(@user.id), class: "see-all" %>
+ <p class="copy-right">© 2022 GitHub, Inc. Terms</p>
+</section>
