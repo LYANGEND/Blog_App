@@ -1,7 +1,7 @@
 class LikesController < ApplicationController
   def create
     post = Post.find(params[:post_id])
-    user = User.find(params[:user_id]) # current_user
+    user = current_user
     liked = Like.where(user:, post:)
 
     if liked.present?

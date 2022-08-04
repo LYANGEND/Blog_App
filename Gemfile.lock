@@ -114,7 +114,6 @@ GEM
       railties (>= 5.0.0)
     faker (2.21.0)
       i18n (>= 1.8.11, < 2)
-    ffi (1.15.5)
     ffi (1.15.5-x64-mingw-ucrt)
     globalid (1.0.0)
       activesupport (>= 5.0)
@@ -162,11 +161,9 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.6-x64-mingw-ucrt)
       racc (~> 1.4)
-    nokogiri (1.13.6-x86_64-linux)
-      racc (~> 1.4)
     orm_adapter (0.5.0)
-    pg (1.4.1)
     pg (1.4.1-x64-mingw-ucrt)
+    pgreset (0.3)
     public_suffix (4.0.7)
     puma (5.6.4)
       nio4r (~> 2.0)
@@ -277,7 +274,6 @@ GEM
 
 PLATFORMS
   x64-mingw-ucrt
-  x86_64-linux
 
 DEPENDENCIES
   bootsnap
@@ -295,6 +291,7 @@ DEPENDENCIES
   jwt
   letter_opener (~> 1.4, >= 1.4.1)
   pg (~> 1.1)
+  pgreset
   puma (~> 5.0)
   rails (~> 7.0.3)
   rails-controller-testing
@@ -311,4 +308,4 @@ RUBY VERSION
    ruby 3.1.2p20
 
 BUNDLED WITH
-   2.3.18
+   2.4.0.dev
