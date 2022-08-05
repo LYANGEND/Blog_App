@@ -4,10 +4,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    return unless User.exists?(params[:id])
-
-    @user = User.find_by(id: params[:id])
-    @posts = @user.posts
-    @recent_posts = @user.recent_post
+    @user = User.find(params[:id])
   end
 end

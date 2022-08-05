@@ -1,50 +1,29 @@
-<section class="user-details">
-<section class='user-section-card'>
-<div class="user-img"><h3>Post #<%= @post.id %> By <%= @user.name %></h3></div>
-  <div class="user-card">
-    <div class="user-card__name">
-    <h1>Comments <%= @post.comments.length %><h1>
-    </div>
-    <div class="user-card__email">
-    <p>Likes:<%= @post.likes.length %> </p>  
-  </div>
-</section>
-
-<div class='user-section-card'><%= @post.text %></div>
-
-<div class='user-section-card comment-owner'>
-<% @post.user.comments.each do |comm| %>
-  <p class='list-comment'><%= @user.name %> : <%= comm.text %></p>
-<% end %>
+<div class="container flex flex--column">
+<% flash.each do |type, msg| %>
+        <div class="alert alert-primary" role="alert">
+            <%= msg %>
+        </div>
+    <% end %>
+    <div class="card">
+            <div class="card-body flex flex--column">
+                <div class="post-header flex">
+                    <p>By <%= @post.author.name %></p>
+                    <div class="counter flex">
+                        <p>Comments: <%= @post.comments_counter %>,</p>
+                        <p>Likes: <%= @post.likes_counter %></p>
+                         <%= button_to "Like", user_post_likes_path(post_id: @post.id), params: { like: { post_id: @post.id } }, class: "btn btn-primary" %>
+                    </div>
+                </div>
+                <div class="row">
+                    <p><%= @post.text %></p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body flex flex--column">
+                <% @post.comment.each do |comment| %>
+                    <p><%= comment.author.name %>: <%= comment.text %></p>
+                <% end %>
+            </div>
+        </div>
 </div>
-<div class='btn-container'>
-<%= link_to 'Add a comment', new_user_post_comment_path(@user.id, @post.id), class: "see-all" %> 
-<%= button_to 'Like', user_post_likes_path(@user, @post), method: :post, class: 'see-all'%>
-</div>
- <p class="copy-right">© 2022 GitHub, Inc. Terms</p>
-</section>
-<section class="user-details">
-<section class='user-section-card'>
-<div class="user-img"><h3>Post #<%= @post.id %> By <%= @user.name %></h3></div>
-  <div class="user-card">
-    <div class="user-card__name">
-    <h1>Comments <%= @post.commentsCounter %><h1>
-    </div>
-    <div class="user-card__email">
-    <p>Likes:<%= @post.likesCounter %> </p>  
-  </div>
-</section>
-
-<div class='user-section-card'><%= @post.text %></div>
-
-<div class='user-section-card comment-owner'>
-<% @post.user.comments.each do |comm| %>
-  <p class='list-comment'><%= @user.name %> : <%= comm.text %></p>
-<% end %>
-</div>
-<div class='btn-container'>
-<%= link_to 'Add a comment', new_user_post_comment_path(@user.id, @post.id), class: "see-all" %> 
-<%= button_to 'Like', user_post_likes_path(@user, @post), method: :post, class: 'see-all'%>
-</div>
- <p class="copy-right">© 2022 GitHub, Inc. Terms</p>
-</section>
