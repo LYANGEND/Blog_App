@@ -40,3 +40,48 @@ class ApiController < ApplicationController
           true
         end
       end
+
+      def list_users_and_post_comments
+        authentication_token = params[:authentication_token]
+        return unless check_token_user_params(authentication_token)
+    
+        return unless check_post_params
+    
+        comments = Comment.where(post_id: params[:post_id], author_id: params[:user_id])
+        json_response(comments)
+      end
+    
+      def check_token_user_params(authentication_token)
+        if authentication_token.nil?
+          json_response({ error: 'Invalid token.' }, 400)
+          false
+        elsif !authenticate(authentication_token)
+          json_response({ error: 'Not authorized.' }, 401)
+          false
+        elsif !User.exists?(params[:user_id])
+          json_response({ error: 'User does not exist.' }, 404)
+          false
+        else
+          true
+        end
+      end
+    
+      def authenticate(authentication_token)
+        email = ApiHelper::JsonWebToken.decode(authentication_token)[0]
+        user = User.find_by(email:)
+        return false if user.nil?
+    
+        @current_user = user
+        true
+      end
+    
+      def check_post_params
+        if Post.where(id: params[:post_id], author_id: params[:user_id]).exists?
+          true
+        else
+          json_response({ error: 'Post does not exist.' }, 404)
+          false
+        end
+      end
+    end
+    
