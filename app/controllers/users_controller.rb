@@ -1,9 +1,15 @@
 class UsersController < ApplicationController
+  load_and_authorize_resource
+
   def index
-    @users = User.all
+    @users = User.all.order('name ASC')
   end
 
   def show
-    @user = User.find(params[:id])
+    return unless User.exists?(params[:id])
+
+    @user = User.find_by(id: params[:id])
+    @posts = @user.posts
+    @recent_posts = @user.recent_post
   end
 end

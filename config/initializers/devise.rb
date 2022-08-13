@@ -14,7 +14,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'e23c37ff016842cd2f4377c5baf917e1b5c4bdecf980a1d25daa258d81e5ad9dc8c7c6c978c231a43583a296af2cb736de96a9be9dbd7f7c9ca2ecbb81c0c8cb'
+  # config.secret_key = 'a412b2b4d04a71accd2b5c720b2ca7e1879df6712d37cd48ad3a7fe573647e82b25d43b02729fd3afd7473b3ded5107fad488f83ffd2573c992155615545b0a0'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -126,7 +126,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '9285323e197d1be6e337952fb3714c999a11c0cb75d92c89140f5cef5037130f38b2eed76b78a37c159bd4c718e0baea3092a7305c90ad78c514d63551e1a46c'
+  # config.pepper = '03a39427e580b874c56598aa0e6369795d5e060167ea762813ebf2d61b6131ac209a25e6dba09d7bd556f7e68a9ee93162e27b26b67ed18c0d56eb3252a1f18d'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -157,7 +157,7 @@ Devise.setup do |config|
   # initial account confirmation) to be applied. Requires additional unconfirmed_email
   # db field (see migrations). Until confirmed, new email is stored in
   # unconfirmed_email column, and copied to email column on successful confirmation.
-  config.reconfirmable = false
+  config.reconfirmable = true
 
   # Defines which key will be used when confirming an account
   # config.confirmation_keys = [:email]
@@ -266,8 +266,8 @@ Devise.setup do |config|
   # config.navigational_formats = ['*/*', :html]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
-  config.sign_out_via = :delete
-
+  # config.sign_out_via = :delete  #change to check if it works
+  config.sign_out_via = :get
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
